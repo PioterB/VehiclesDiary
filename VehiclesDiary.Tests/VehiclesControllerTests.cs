@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Moq;
 using TestDataGenerators;
 using VehicleDiary.DataGenerators;
-using VehiclesDiary.Controllers;
+using VehiclesDiary.BuisnessLayer;
+using VehiclesDiary.BuisnessLayer.Vehicles;
+using VehiclesDiary.Services;
 
 namespace VehiclesDiary.Tests
 {

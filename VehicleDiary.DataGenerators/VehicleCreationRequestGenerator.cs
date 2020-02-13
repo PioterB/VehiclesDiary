@@ -1,6 +1,6 @@
 ﻿using System;
 using TestDataGenerators;
-using VehiclesDiary.Controllers;
+using VehiclesDiary.Services;
 
 namespace VehicleDiary.DataGenerators
 {

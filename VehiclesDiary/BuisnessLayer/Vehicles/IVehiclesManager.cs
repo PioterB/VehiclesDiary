@@ -1,4 +1,4 @@
-﻿namespace VehiclesDiary.Controllers
+﻿namespace VehiclesDiary.BuisnessLayer.Vehicles
 {
 	public interface IVehiclesManager
 	{

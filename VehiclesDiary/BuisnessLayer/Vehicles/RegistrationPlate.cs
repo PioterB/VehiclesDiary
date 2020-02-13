@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace VehiclesDiary.Controllers
+namespace VehiclesDiary.BuisnessLayer.Vehicles
 {
 	public class RegistrationPlate
 	{

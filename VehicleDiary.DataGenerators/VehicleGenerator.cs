@@ -1,6 +1,7 @@
 ﻿using System;
 using TestDataGenerators;
-using VehiclesDiary.Controllers;
+using VehiclesDiary.BuisnessLayer;
+using VehiclesDiary.BuisnessLayer.Vehicles;
 
 namespace VehicleDiary.DataGenerators
 {

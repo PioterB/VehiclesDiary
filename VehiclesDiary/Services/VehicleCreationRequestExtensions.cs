@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using VehiclesDiary.BuisnessLayer.Vehicles;
 
-namespace VehiclesDiary.Controllers
+namespace VehiclesDiary.Services
 {
 	public static class VehicleCreationRequestExtensions
 	{

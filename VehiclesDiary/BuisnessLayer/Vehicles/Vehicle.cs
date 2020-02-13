@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VehiclesDiary.Controllers
+namespace VehiclesDiary.BuisnessLayer.Vehicles
 {
 	public abstract class Vehicle : IEquatable<Vehicle>, IEquatable<string>
 	{

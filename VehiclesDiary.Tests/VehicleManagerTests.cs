@@ -6,7 +6,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using TestDataGenerators;
 using VehicleDiary.DataGenerators;
-using VehiclesDiary.Controllers;
+using VehiclesDiary.BuisnessLayer;
+using VehiclesDiary.BuisnessLayer.Events;
+using VehiclesDiary.BuisnessLayer.Vehicles;
 using VehiclesDiary.DataAccess;
 
 namespace VehiclesDiary.Tests

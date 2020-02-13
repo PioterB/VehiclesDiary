@@ -1,5 +1,6 @@
 ﻿using System;
-using VehiclesDiary.Controllers;
+using VehiclesDiary.BuisnessLayer;
+using VehiclesDiary.BuisnessLayer.Events;
 
 namespace VehiclesDiary.Tests
 {

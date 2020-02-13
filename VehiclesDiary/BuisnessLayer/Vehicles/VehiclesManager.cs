@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using VehiclesDiary.BuisnessLayer.Events;
 using VehiclesDiary.DataAccess;
 
-namespace VehiclesDiary.Controllers
+namespace VehiclesDiary.BuisnessLayer.Vehicles
 {
 	public class VehiclesManager : IVehiclesManager
 	{

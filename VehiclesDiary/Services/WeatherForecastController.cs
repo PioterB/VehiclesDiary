@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace VehiclesDiary.Controllers
+namespace VehiclesDiary.Services
 {
 	[ApiController]
 	[Route("[controller]")]
