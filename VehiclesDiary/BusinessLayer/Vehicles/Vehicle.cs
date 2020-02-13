@@ -1,8 +1,9 @@
 ﻿using System;
+using VehiclesDiary.DataAccess;
 
-namespace VehiclesDiary.BuisnessLayer.Vehicles
+namespace VehiclesDiary.BusinessLayer.Vehicles
 {
-	public abstract class Vehicle : IEquatable<Vehicle>, IEquatable<string>
+	public abstract class Vehicle : IEquatable<Vehicle>, IEquatable<string>, IEntity<string>
 	{
 		protected Vehicle(string name)
 		{
@@ -10,6 +11,8 @@ namespace VehiclesDiary.BuisnessLayer.Vehicles
 		}
 
 		public string Name { get; private set; }
+		
+		public string Key => Name;
 
 		public bool Equals(Vehicle other)
 		{

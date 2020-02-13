@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using VehiclesDiary.BuisnessLayer.Events;
+using VehiclesDiary.BusinessLayer.Events;
 using VehiclesDiary.DataAccess;
 
-namespace VehiclesDiary.BuisnessLayer.Vehicles
+namespace VehiclesDiary.BusinessLayer.Vehicles
 {
 	public class VehiclesManager : IVehiclesManager
 	{

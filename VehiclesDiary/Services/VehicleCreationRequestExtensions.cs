@@ -1,4 +1,4 @@
-﻿using VehiclesDiary.BuisnessLayer.Vehicles;
+﻿using VehiclesDiary.BusinessLayer.Vehicles;
 
 namespace VehiclesDiary.Services
 {

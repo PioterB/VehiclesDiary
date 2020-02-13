@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using VehiclesDiary.BusinessLayer.Vehicles;
+using VehiclesDiary.DataAccess;
 
 namespace VehiclesDiary
 {
@@ -26,6 +28,9 @@ namespace VehiclesDiary
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllers();
+			services.AddScoped<IVehiclesManager, VehiclesManager>();
+			services.AddSingleton(typeof(IRepository<Vehicle>), typeof(VehiclesRepository));
+			services.AddSingleton(typeof(IRepository<>), typeof(Repository<>));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

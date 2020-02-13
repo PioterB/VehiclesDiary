@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Moq;
 using TestDataGenerators;
 using VehicleDiary.DataGenerators;
-using VehiclesDiary.BuisnessLayer;
-using VehiclesDiary.BuisnessLayer.Vehicles;
+using VehiclesDiary.BusinessLayer;
+using VehiclesDiary.BusinessLayer.Vehicles;
+using VehiclesDiary.DataAccess;
 using VehiclesDiary.Services;
 
 namespace VehiclesDiary.Tests
@@ -26,7 +27,8 @@ namespace VehiclesDiary.Tests
 		public void BeforeEachTest()
 		{
 			var vehiclesManager = new Mock<IVehiclesManager>();
-			_unitUnderTests = new VehiclesController(vehiclesManager.Object);
+			var vehiclesRepository = new Mock<IRepository<Vehicle>>();
+			_unitUnderTests = new VehiclesController(vehiclesManager.Object, vehiclesRepository.Object);
 		}
 
 		[TestMethod]

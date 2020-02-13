@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VehiclesDiary.BuisnessLayer
+namespace VehiclesDiary.BusinessLayer
 {
 	public class IntegrityException : Exception
 	{

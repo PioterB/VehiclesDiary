@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using VehiclesDiary.BuisnessLayer.Vehicles;
+using VehiclesDiary.BusinessLayer.Vehicles;
+using VehiclesDiary.DataAccess;
 
 namespace VehiclesDiary.Services
 {
@@ -10,10 +13,18 @@ namespace VehiclesDiary.Services
     public class VehiclesController : ControllerBase
     {
         private readonly IVehiclesManager _vehiclesManager;
+        private readonly IRepository<Vehicle> _vehiclesRepository;
 
-        public VehiclesController(IVehiclesManager vehiclesManager)
+        public VehiclesController(IVehiclesManager vehiclesManager, IRepository<Vehicle> vehiclesRepository)
         {
-            _vehiclesManager = vehiclesManager;
+	        _vehiclesManager = vehiclesManager;
+	        _vehiclesRepository = vehiclesRepository;
+        }
+
+        [HttpGet]
+        public IEnumerable<VehiclePreview> Get()
+        {
+	        return _vehiclesRepository.Get().Select(item => new VehiclePreview(item));
         }
 
         [HttpPost]

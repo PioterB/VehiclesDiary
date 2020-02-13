@@ -1,4 +1,4 @@
-﻿namespace VehiclesDiary.BuisnessLayer.Vehicles
+﻿namespace VehiclesDiary.BusinessLayer.Vehicles
 {
 	public class Car : Vehicle
 	{

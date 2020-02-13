@@ -1,0 +1,38 @@
+﻿@page "/vehicles"
+
+@using VehicleDiary.WebApp.Data
+@using System.Net.Http
+
+<h1>Vehicles</h1>
+
+@if (_vehicles == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vehicle in _vehicles)
+            {
+                <tr>
+                    <td>@vehicle.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private VehiclePreview[] _vehicles;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _vehicles = await new HttpClient().GetJsonAsync<VehiclePreview[]>("http://localhost:51704/api/vehicles"); 
+    }
+}

@@ -3,24 +3,21 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:51704",
-      "sslPort": 0
+      "applicationUrl": "http://localhost:54878",
+      "sslPort": 44384
     }
   },
-  "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/vehicles",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "VehiclesDiary": {
+    "CarDiary": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/vehicles",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

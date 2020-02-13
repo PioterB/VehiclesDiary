@@ -1,7 +1,7 @@
 ﻿using System;
 using TestDataGenerators;
-using VehiclesDiary.BuisnessLayer;
-using VehiclesDiary.BuisnessLayer.Vehicles;
+using VehiclesDiary.BusinessLayer;
+using VehiclesDiary.BusinessLayer.Vehicles;
 
 namespace VehicleDiary.DataGenerators
 {

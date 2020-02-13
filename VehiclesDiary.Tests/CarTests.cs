@@ -4,8 +4,8 @@ using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestDataGenerators;
 using VehicleDiary.DataGenerators;
-using VehiclesDiary.BuisnessLayer;
-using VehiclesDiary.BuisnessLayer.Vehicles;
+using VehiclesDiary.BusinessLayer;
+using VehiclesDiary.BusinessLayer.Vehicles;
 
 namespace VehiclesDiary.Tests
 {

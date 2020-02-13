@@ -1,6 +1,7 @@
 ﻿using System;
-using VehiclesDiary.BuisnessLayer;
-using VehiclesDiary.BuisnessLayer.Events;
+using TestDataGenerators;
+using VehicleDiary.DataGenerators;
+using VehiclesDiary.BusinessLayer.Events;
 
 namespace VehiclesDiary.Tests
 {
@@ -8,7 +9,7 @@ namespace VehiclesDiary.Tests
 	{
 		public DiaryEvent Create()
 		{
-			return new DiaryEvent();
+			return new DiaryEvent(StringGenerator.Create(5), new VehicleGenerator().Create());
 		}
 	}
 }
