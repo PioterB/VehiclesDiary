@@ -6,7 +6,7 @@ namespace VehiclesDiary.Services
 	{
 		public static Vehicle ToModel(this VehicleCreationRequest source)
 		{
-			return new Car("for now", RegistrationPlate.Empty);
+			return new Car(source.Name, RegistrationPlate.Empty);
 		}
 	}
 }
