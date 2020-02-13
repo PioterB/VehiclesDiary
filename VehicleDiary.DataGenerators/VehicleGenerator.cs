@@ -9,10 +9,11 @@ namespace VehicleDiary.DataGenerators
 		/// <summary>
 		/// Returns avny Vehicle just to satisfy presence is tests. 
 		/// </summary>
+		/// <param name="name">optional name, when given will be used</param>
 		/// <returns>Vehicle instance.</returns>
-		public Vehicle Create()
+		public Vehicle Create(string name = null)
 		{
-			return new Car(StringGenerator.Create(5), RegistrationPlate.Empty);
+			return new Car(name ?? StringGenerator.Create(5), RegistrationPlate.Empty);
 		}
 
 		/// <summary>

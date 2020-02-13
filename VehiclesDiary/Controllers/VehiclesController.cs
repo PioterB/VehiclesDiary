@@ -12,9 +12,9 @@ namespace VehiclesDiary.Controllers
     [ApiController]
     public class VehiclesController : ControllerBase
     {
-        private readonly VehiclesManager _vehiclesManager;
+        private readonly IVehiclesManager _vehiclesManager;
 
-        public VehiclesController(VehiclesManager vehiclesManager)
+        public VehiclesController(IVehiclesManager vehiclesManager)
         {
             _vehiclesManager = vehiclesManager;
         }

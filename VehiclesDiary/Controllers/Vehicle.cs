@@ -2,7 +2,7 @@
 
 namespace VehiclesDiary.Controllers
 {
-	public abstract class Vehicle : IEquatable<Vehicle>
+	public abstract class Vehicle : IEquatable<Vehicle>, IEquatable<string>
 	{
 		protected Vehicle(string name)
 		{
@@ -16,6 +16,12 @@ namespace VehiclesDiary.Controllers
 			if (ReferenceEquals(null, other)) return false;
 			if (ReferenceEquals(this, other)) return true;
 			return Name == other.Name;
+		}
+
+		public bool Equals(string otherKey)
+		{
+			if (ReferenceEquals(null, otherKey)) return false;
+			return Name == otherKey;
 		}
 
 		public override bool Equals(object obj)

@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.AspNetCore.Http;
+using Moq;
 using TestDataGenerators;
 using VehicleDiary.DataGenerators;
 using VehiclesDiary.Controllers;
@@ -11,41 +12,25 @@ namespace VehiclesDiary.Tests
 	public class VehiclesControllerTests
 	{
 		private VehiclesController _unitUnderTests;
+		private static VehicleCreationRequestGenerator _vehiclesGenerator;
+
+		[ClassInitialize]
+		public static void OneTimeSetup(TestContext cts)
+		{
+			_vehiclesGenerator = new VehicleCreationRequestGenerator();
+		}
 
 		[TestInitialize]
 		public void BeforeEachTest()
 		{
-			var vehiclesManager = new VehiclesManager();
-			_unitUnderTests = new VehiclesController(vehiclesManager);
-		}
-
-		[TestMethod]
-		public void Add_NotexistingName_Added()
-		{
-			var input = new VehicleCreationRequestGenerator().Create();
-
-			var result = _unitUnderTests.Add(input);
-
-			Assert.IsNotNull(result, "creation result is missing");
-			Assert.AreEqual(StatusCodes.Status200OK, result.StatusCode, "Positive result was not signalled");
-		}
-
-		[TestMethod]
-		public void Add_ExistingName_Rejected()
-		{
-			var input = new VehicleCreationRequestGenerator().Create();
-
-			_unitUnderTests.Add(input);
-			var result = _unitUnderTests.Add(input);
-
-			Assert.IsNotNull(result, "creation result is missing");
-			Assert.AreEqual(StatusCodes.Status400BadRequest, result.StatusCode, "Duplication was allowed when shouldn't");
+			var vehiclesManager = new Mock<IVehiclesManager>();
+			_unitUnderTests = new VehiclesController(vehiclesManager.Object);
 		}
 
 		[TestMethod]
 		public void Add_MissingName_Rejected()
 		{
-			var input = new VehicleCreationRequestGenerator().Create();
+			var input = _vehiclesGenerator.Create();
 			input.Name = null;
 
 			var result = _unitUnderTests.Add(input);

@@ -1,27 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using VehiclesDiary.DataAccess;
 
 namespace VehiclesDiary.Controllers
 {
-	public class VehiclesManager
+	public class VehiclesManager : IVehiclesManager
 	{
-		private ICollection<Vehicle> _vehicles = new List<Vehicle>();
+		private readonly IRepository<Vehicle> _vehiclesRepository;
+		private readonly IRepository<DiaryEvent> _eventsRepository;
+
+		public VehiclesManager(IRepository<Vehicle> vehiclesRepository, IRepository<DiaryEvent> eventsRepository)
+		{
+			_vehiclesRepository = vehiclesRepository;
+			_eventsRepository = eventsRepository;
+		}
 
 		public void Create(Vehicle vehicle)
 		{
-			if (_vehicles.FirstOrDefault(v => v.Name == vehicle.Name) != null)
+			if (_vehiclesRepository.Get(v => v.Name == vehicle.Name).Any())
 			{
 				throw new CreationFailedException("duplication");
 			}
 
-			_vehicles.Add(vehicle);
+			_vehiclesRepository.Add(vehicle);
 		}
 
-		internal void Remove(string name)
+		public void Remove(string name)
 		{
-			var item = _vehicles.FirstOrDefault(v => v.Name == name);
-			_vehicles.Remove(item);
+			EnsureNotConnectedWithOthers(name);
+
+			_vehiclesRepository.Remove(name);
+		}
+
+		private void EnsureNotConnectedWithOthers(string vehicleKey)
+		{
+			if (HasEvents(vehicleKey))
+			{
+				throw new IntegrityException();
+			}
+		}
+
+		private bool HasEvents(string vehicleKey)
+		{
+			return _eventsRepository.Get(e => e.Vehicle.Equals(vehicleKey)).Any();
 		}
 
 		public void Update(Vehicle vehicle, string newName)
