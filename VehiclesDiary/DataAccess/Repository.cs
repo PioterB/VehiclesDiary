@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 
@@ -9,11 +10,13 @@ namespace VehiclesDiary.DataAccess
 	{
 		private readonly ICollection<TEntity> _memory;
 
+		[ExcludeFromCodeCoverage]
 		public Repository()
 		{
 			_memory = InitializeMemory();
 		}
 
+		[ExcludeFromCodeCoverage]
 		public void Add(TEntity item)
 		{
 			_memory.Add(item);
@@ -29,6 +32,7 @@ namespace VehiclesDiary.DataAccess
 			_memory.Remove(_memory.FirstOrDefault(i => i.Key == key));
 		}
 
+		[ExcludeFromCodeCoverage]
 		protected virtual ICollection<TEntity> InitializeMemory()
 		{
 			return new List<TEntity>();

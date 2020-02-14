@@ -13,9 +13,9 @@ namespace VehiclesDiary.Services
     public class VehiclesController : ControllerBase
     {
         private readonly IVehiclesManager _vehiclesManager;
-        private readonly IRepository<Vehicle> _vehiclesRepository;
+        private readonly IReadRepository<Vehicle> _vehiclesRepository;
 
-        public VehiclesController(IVehiclesManager vehiclesManager, IRepository<Vehicle> vehiclesRepository)
+        public VehiclesController(IVehiclesManager vehiclesManager, IReadRepository<Vehicle> vehiclesRepository)
         {
 	        _vehiclesManager = vehiclesManager;
 	        _vehiclesRepository = vehiclesRepository;
@@ -34,9 +34,10 @@ namespace VehiclesDiary.Services
             {
                 return BadRequest("Name is required");
             }
+            
 
             Vehicle vehicle = input.ToModel();
-
+            
             try
             {
                 _vehiclesManager.Create(vehicle);
@@ -47,6 +48,11 @@ namespace VehiclesDiary.Services
             }
 
             return Ok();
+        }
+
+        private Vehicle ChangeToModel(VehicleCreationRequest input)
+        {
+	        throw new NotImplementedException();
         }
 
         [HttpDelete]

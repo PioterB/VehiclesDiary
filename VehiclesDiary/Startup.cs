@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -15,6 +16,7 @@ using VehiclesDiary.DataAccess;
 
 namespace VehiclesDiary
 {
+	[ExcludeFromCodeCoverage]
 	public class Startup
 	{
 		public Startup(IConfiguration configuration)
@@ -30,7 +32,9 @@ namespace VehiclesDiary
 			services.AddControllers();
 			services.AddScoped<IVehiclesManager, VehiclesManager>();
 			services.AddSingleton(typeof(IRepository<Vehicle>), typeof(VehiclesRepository));
+			services.AddSingleton(typeof(IReadRepository<Vehicle>), typeof(VehiclesRepository));
 			services.AddSingleton(typeof(IRepository<>), typeof(Repository<>));
+			services.AddSingleton(typeof(IReadRepository<>), typeof(Repository<>));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

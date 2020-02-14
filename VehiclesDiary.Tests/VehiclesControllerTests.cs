@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.ComponentModel;
 using Microsoft.AspNetCore.Http;
 using Moq;
 using TestDataGenerators;
@@ -27,7 +28,7 @@ namespace VehiclesDiary.Tests
 		public void BeforeEachTest()
 		{
 			var vehiclesManager = new Mock<IVehiclesManager>();
-			var vehiclesRepository = new Mock<IRepository<Vehicle>>();
+			var vehiclesRepository = new Mock<IReadRepository<Vehicle>>();
 			_unitUnderTests = new VehiclesController(vehiclesManager.Object, vehiclesRepository.Object);
 		}
 
